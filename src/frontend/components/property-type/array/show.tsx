@@ -5,6 +5,7 @@ import { flat } from '../../../../utils'
 import { convertToSubProperty } from './convert-to-sub-property'
 import allowOverride from '../../../hoc/allow-override'
 import { ShowPropertyProps } from '../base-property-props'
+import { RecordJSON } from '../../../interfaces'
 
 type Props = ShowPropertyProps & {
   ItemComponent: typeof React.Component;
@@ -20,6 +21,12 @@ const Show: React.FC<Props> = (props) => {
       <Section>
         {(items || []).map((item, i) => {
           const itemProperty = convertToSubProperty(property, i)
+
+          record.populated[itemProperty.path] = {
+            // params: item,
+            title: item.title || item.name || item.email || item.userName, // TODO change title
+            recordActions: new Array(0),
+          } as RecordJSON
           return (
             <ItemComponent
               {...props}

@@ -1,7 +1,7 @@
 import { DELIMITER } from '../../../../utils/flat/constants'
 import { PropertyJSON } from '../../../interfaces'
 
-export const getSubpropertyPath = (path: string, index: number) => [path, index].join(DELIMITER)
+export const getSubpropertyPath = (...params: any) => [...params].join(DELIMITER)
 export const getIndexFromSubpropertyPath = (subpropertyPath: string) => {
   const [, index] = subpropertyPath.split(DELIMITER)
   return parseInt(index, 10)
@@ -20,7 +20,11 @@ export const getIndexFromSubpropertyPath = (subpropertyPath: string) => {
 export const convertToSubProperty = (arrayProperty: PropertyJSON, index: number): PropertyJSON => (
   {
     ...arrayProperty,
-    path: getSubpropertyPath(arrayProperty.path, index),
+    /**
+     * @ucodkr 20230323
+     * array type select index is users.0.id
+     */
+    path: getSubpropertyPath(arrayProperty.path, index, 'id'),
     label: `[${index + 1}]`,
     isArray: false,
     isDraggable: false,
