@@ -17,7 +17,8 @@
     "cspell": "cspell src/**/*.ts src/**/*.js src/**/*.tsx src/**/*.jsx",
     "check:all": "yarn types && yarn cspell && yarn lint && yarn test && ONCE=true yarn bundle && ONCE=true NODE_ENV=production yarn bundle",
     "dev": "npm-run-all --parallel \"build --watch\" \"bundle\" \"types --watch\"",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "npm-release": "yarn clean&&yarn types&&yarn bundle:globals&& ONCE=true NODE_ENV=production yarn bundle"
   },
   "bin": {
     "admin": "./cli.js"
