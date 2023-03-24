@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG=v6.8.7-ucod-2
+TAG=v6.8.7-ucod-3
 git checkout npm-deploy
 git merge ucodkr -m "${TAG}"
 yarn npm-release
