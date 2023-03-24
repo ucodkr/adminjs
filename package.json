@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "postinstall": "yarn bundle:globals&&yarn build",
+    "prepare": "yarn bundle:globals&&yarn build",
     "test": "mocha ./spec/index.js",
     "types": "tsc",
     "clean": "rm -rf lib && mkdir lib && rm -fr types && mkdir types",
