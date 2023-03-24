@@ -5,6 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
+    "install": "yarn install&&yarn bundle:globals&&yarn build",
     "test": "mocha ./spec/index.js",
     "types": "tsc",
     "clean": "rm -rf lib && mkdir lib && rm -fr types && mkdir types",
