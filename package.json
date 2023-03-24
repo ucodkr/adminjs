@@ -5,7 +5,6 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "install": "node bin/bundle-globals.js&&babel src --out-dir lib --copy-files --extensions '.ts,.js,.jsx,.tsx'",
     "test": "mocha ./spec/index.js",
     "types": "tsc",
     "clean": "rm -rf lib && mkdir lib && rm -fr types && mkdir types",
